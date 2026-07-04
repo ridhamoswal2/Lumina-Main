@@ -37,9 +37,9 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
       id: 1,
       getUrl: () => {
         if (mediaType === "movie") {
-          return `https://player.videasy.net/movie/${item.id}`;
+          return `https://player.videasy.to/movie/${item.id}`;
         } else {
-          return `https://player.videasy.net/tv/${item.id}/${season}/${episode}?nextEpisode=true&episodeSelector=true`;
+          return `https://player.videasy.to/tv/${item.id}/${season}/${episode}?nextEpisode=true&episodeSelector=true`;
         }
       },
     },
