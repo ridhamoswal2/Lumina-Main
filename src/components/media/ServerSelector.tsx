@@ -35,6 +35,7 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
   const servers = [
     {
       id: 1,
+      name: "Server 1",
       getUrl: () => {
         if (mediaType === "movie") {
           return `https://player.videasy.to/movie/${item.id}`;
@@ -43,19 +44,31 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
         }
       },
     },
-    
     {
       id: 2,
+      name: "Server 2",
       getUrl: () => {
         if (mediaType === "movie") {
-          return `https://www.rivestream.app/embed?type=movie&id={tmdbId}`;
+          return `https://player.cinezo.live/embed/movie/${item.id}`;
         } else {
-          return `https://www.rivestream.app/embed?type=tv&id={tmdbId}&season={season}&episode={episode}`;
+          return `https://player.cinezo.live/embed/tv/${item.id}/${season}/${episode}`;
         }
       },
     },
     {
       id: 3,
+      name: "Server 3",
+      getUrl: () => {
+        if (mediaType === "movie") {
+          return `https://www.rivestream.app/embed?type=movie&id=${item.id}`;
+        } else {
+          return `https://www.rivestream.app/embed?type=tv&id=${item.id}&season=${season}&episode=${episode}`;
+        }
+      },
+    },
+    {
+      id: 4,
+      name: "Server 4",
       getUrl: () => {
         if (mediaType === "movie") {
           return `https://vidfast.pro/movie/${item.id}?autoPlay=true`;
@@ -65,7 +78,8 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
       },
     },
     {
-      id: 4,
+      id: 5,
+      name: "Server 5",
       getUrl: () => {
         if (mediaType === "movie") {
           return `https://www.vidking.net/embed/movie/${item.id}`;
@@ -75,7 +89,8 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
       },
     },
     {
-      id: 5,
+      id: 6,
+      name: "Server 6",
       getUrl: () => {
         if (mediaType === "movie") {
           return `https://player.vidzee.wtf/embed/movie/${item.id}`;
@@ -84,7 +99,6 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
         }
       },
     },
-    
   ];
 
   const handleServerSelect = (server: typeof servers[0]) => {
@@ -120,7 +134,7 @@ const ServerSelector: React.FC<ServerSelectorProps> = ({
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
                     <Play className="h-4 w-4" />
                   </div>
-                  <span className="font-medium">Server {server.id}</span>
+                  <span className="font-medium">{server.name}</span>
                 </div>
               </Button>
             ))}
